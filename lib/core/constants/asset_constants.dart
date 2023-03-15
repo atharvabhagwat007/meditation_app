@@ -11,6 +11,10 @@ abstract class Assets {
   static const String reduceAnxiety = 'assets/reduce_anxiety.png';
   static const String personalGrowth = 'assets/personal_growth.png';
   static const String betterSleep = 'assets/better_sleep.png';
+  static const String basicCourse = 'assets/basic_course.png';
+  static const String relaxationMusic = 'assets/relaxation_music.png';
+  static const String anxiety = 'assets/anxiety.png';
+  static const String detailImage = 'assets/detail_image.png';
 }
 
 // TODO: revisit

@@ -11,38 +11,39 @@
 // ignore_for_file: type=lint
 
 // ignore_for_file: no_leading_underscores_for_library_prefixes
-import 'package:auto_route/auto_route.dart' as _i7;
+import 'package:auto_route/auto_route.dart' as _i8;
 import 'package:auto_route/empty_router_widgets.dart' as _i1;
-import 'package:flutter/cupertino.dart' as _i9;
-import 'package:flutter/material.dart' as _i8;
+import 'package:flutter/cupertino.dart' as _i10;
+import 'package:flutter/material.dart' as _i9;
 
 import '../../presentation/authentication/screen/choose_topic_screen.dart'
     as _i5;
 import '../../presentation/authentication/screen/login_screen.dart' as _i3;
 import '../../presentation/authentication/screen/pre_login_screen.dart' as _i2;
 import '../../presentation/authentication/screen/welcome_screen.dart' as _i4;
+import '../../presentation/home/screen/detail_screen.dart' as _i7;
 import '../../presentation/home/screen/home_screen.dart' as _i6;
 
-class AppRouter extends _i7.RootStackRouter {
-  AppRouter([_i8.GlobalKey<_i8.NavigatorState>? navigatorKey])
+class AppRouter extends _i8.RootStackRouter {
+  AppRouter([_i9.GlobalKey<_i9.NavigatorState>? navigatorKey])
       : super(navigatorKey);
 
   @override
-  final Map<String, _i7.PageFactory> pagesMap = {
+  final Map<String, _i8.PageFactory> pagesMap = {
     AuthenticationRouter.name: (routeData) {
-      return _i7.MaterialPageX<dynamic>(
+      return _i8.MaterialPageX<dynamic>(
         routeData: routeData,
         child: const _i1.EmptyRouterPage(),
       );
     },
     HomeRouter.name: (routeData) {
-      return _i7.MaterialPageX<dynamic>(
+      return _i8.MaterialPageX<dynamic>(
         routeData: routeData,
         child: const _i1.EmptyRouterPage(),
       );
     },
     PreLoginRoute.name: (routeData) {
-      return _i7.MaterialPageX<dynamic>(
+      return _i8.MaterialPageX<dynamic>(
         routeData: routeData,
         child: const _i2.PreLoginScreen(),
       );
@@ -50,7 +51,7 @@ class AppRouter extends _i7.RootStackRouter {
     LoginRoute.name: (routeData) {
       final args = routeData.argsAs<LoginRouteArgs>(
           orElse: () => const LoginRouteArgs());
-      return _i7.MaterialPageX<dynamic>(
+      return _i8.MaterialPageX<dynamic>(
         routeData: routeData,
         child: _i3.LoginScreen(
           key: args.key,
@@ -60,7 +61,7 @@ class AppRouter extends _i7.RootStackRouter {
     },
     WelcomeRoute.name: (routeData) {
       final args = routeData.argsAs<WelcomeRouteArgs>();
-      return _i7.MaterialPageX<dynamic>(
+      return _i8.MaterialPageX<dynamic>(
         routeData: routeData,
         child: _i4.WelcomeScreen(
           key: args.key,
@@ -69,62 +70,73 @@ class AppRouter extends _i7.RootStackRouter {
       );
     },
     ChooseTopicRoute.name: (routeData) {
-      return _i7.MaterialPageX<dynamic>(
+      return _i8.MaterialPageX<dynamic>(
         routeData: routeData,
         child: const _i5.ChooseTopicScreen(),
       );
     },
     HomeRoute.name: (routeData) {
-      return _i7.MaterialPageX<dynamic>(
+      return _i8.MaterialPageX<dynamic>(
         routeData: routeData,
         child: const _i6.HomeScreen(),
+      );
+    },
+    DetailRoute.name: (routeData) {
+      return _i8.MaterialPageX<dynamic>(
+        routeData: routeData,
+        child: const _i7.DetailScreen(),
       );
     },
   };
 
   @override
-  List<_i7.RouteConfig> get routes => [
-        _i7.RouteConfig(
+  List<_i8.RouteConfig> get routes => [
+        _i8.RouteConfig(
           '/#redirect',
           path: '/',
           redirectTo: 'authenticationScreenPath',
           fullMatch: true,
         ),
-        _i7.RouteConfig(
+        _i8.RouteConfig(
           AuthenticationRouter.name,
           path: 'authenticationScreenPath',
           children: [
-            _i7.RouteConfig(
+            _i8.RouteConfig(
               PreLoginRoute.name,
               path: '',
               parent: AuthenticationRouter.name,
             ),
-            _i7.RouteConfig(
+            _i8.RouteConfig(
               LoginRoute.name,
               path: 'login',
               parent: AuthenticationRouter.name,
             ),
-            _i7.RouteConfig(
+            _i8.RouteConfig(
               WelcomeRoute.name,
               path: 'welcome',
               parent: AuthenticationRouter.name,
             ),
-            _i7.RouteConfig(
+            _i8.RouteConfig(
               ChooseTopicRoute.name,
               path: 'choosetopicPath',
               parent: AuthenticationRouter.name,
             ),
           ],
         ),
-        _i7.RouteConfig(
+        _i8.RouteConfig(
           HomeRouter.name,
           path: 'homePath',
           children: [
-            _i7.RouteConfig(
+            _i8.RouteConfig(
               HomeRoute.name,
               path: '',
               parent: HomeRouter.name,
-            )
+            ),
+            _i8.RouteConfig(
+              DetailRoute.name,
+              path: 'detail',
+              parent: HomeRouter.name,
+            ),
           ],
         ),
       ];
@@ -132,8 +144,8 @@ class AppRouter extends _i7.RootStackRouter {
 
 /// generated route for
 /// [_i1.EmptyRouterPage]
-class AuthenticationRouter extends _i7.PageRouteInfo<void> {
-  const AuthenticationRouter({List<_i7.PageRouteInfo>? children})
+class AuthenticationRouter extends _i8.PageRouteInfo<void> {
+  const AuthenticationRouter({List<_i8.PageRouteInfo>? children})
       : super(
           AuthenticationRouter.name,
           path: 'authenticationScreenPath',
@@ -145,8 +157,8 @@ class AuthenticationRouter extends _i7.PageRouteInfo<void> {
 
 /// generated route for
 /// [_i1.EmptyRouterPage]
-class HomeRouter extends _i7.PageRouteInfo<void> {
-  const HomeRouter({List<_i7.PageRouteInfo>? children})
+class HomeRouter extends _i8.PageRouteInfo<void> {
+  const HomeRouter({List<_i8.PageRouteInfo>? children})
       : super(
           HomeRouter.name,
           path: 'homePath',
@@ -158,7 +170,7 @@ class HomeRouter extends _i7.PageRouteInfo<void> {
 
 /// generated route for
 /// [_i2.PreLoginScreen]
-class PreLoginRoute extends _i7.PageRouteInfo<void> {
+class PreLoginRoute extends _i8.PageRouteInfo<void> {
   const PreLoginRoute()
       : super(
           PreLoginRoute.name,
@@ -170,9 +182,9 @@ class PreLoginRoute extends _i7.PageRouteInfo<void> {
 
 /// generated route for
 /// [_i3.LoginScreen]
-class LoginRoute extends _i7.PageRouteInfo<LoginRouteArgs> {
+class LoginRoute extends _i8.PageRouteInfo<LoginRouteArgs> {
   LoginRoute({
-    _i9.Key? key,
+    _i10.Key? key,
     bool isLoginScreen = false,
   }) : super(
           LoginRoute.name,
@@ -192,7 +204,7 @@ class LoginRouteArgs {
     this.isLoginScreen = false,
   });
 
-  final _i9.Key? key;
+  final _i10.Key? key;
 
   final bool isLoginScreen;
 
@@ -204,9 +216,9 @@ class LoginRouteArgs {
 
 /// generated route for
 /// [_i4.WelcomeScreen]
-class WelcomeRoute extends _i7.PageRouteInfo<WelcomeRouteArgs> {
+class WelcomeRoute extends _i8.PageRouteInfo<WelcomeRouteArgs> {
   WelcomeRoute({
-    _i9.Key? key,
+    _i10.Key? key,
     required String name,
   }) : super(
           WelcomeRoute.name,
@@ -226,7 +238,7 @@ class WelcomeRouteArgs {
     required this.name,
   });
 
-  final _i9.Key? key;
+  final _i10.Key? key;
 
   final String name;
 
@@ -238,7 +250,7 @@ class WelcomeRouteArgs {
 
 /// generated route for
 /// [_i5.ChooseTopicScreen]
-class ChooseTopicRoute extends _i7.PageRouteInfo<void> {
+class ChooseTopicRoute extends _i8.PageRouteInfo<void> {
   const ChooseTopicRoute()
       : super(
           ChooseTopicRoute.name,
@@ -250,7 +262,7 @@ class ChooseTopicRoute extends _i7.PageRouteInfo<void> {
 
 /// generated route for
 /// [_i6.HomeScreen]
-class HomeRoute extends _i7.PageRouteInfo<void> {
+class HomeRoute extends _i8.PageRouteInfo<void> {
   const HomeRoute()
       : super(
           HomeRoute.name,
@@ -258,4 +270,16 @@ class HomeRoute extends _i7.PageRouteInfo<void> {
         );
 
   static const String name = 'HomeRoute';
+}
+
+/// generated route for
+/// [_i7.DetailScreen]
+class DetailRoute extends _i8.PageRouteInfo<void> {
+  const DetailRoute()
+      : super(
+          DetailRoute.name,
+          path: 'detail',
+        );
+
+  static const String name = 'DetailRoute';
 }

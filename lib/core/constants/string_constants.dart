@@ -35,4 +35,13 @@ abstract class StringConstants {
   static const String reduceAnxiety = 'Reduce Anxiety';
   static const String personalGrowth = 'Personal Growth';
   static const String betterSleep = 'Better Sleep';
+  static const String weWishYouHaveAGoodDay = 'We wish you have a good day';
+  static const String basicCourse = 'Basic\nCourse';
+  static const String relaxationMusic = 'Relaxation\nMusic';
+  static const String start = 'START';
+  static const String recommendedForYou = 'Recommended for you';
+  static const String anxiety = 'Anxiety';
+  static const String turnDownTheStressVolume = 'Turn Down the stress';
+  static const String popular = 'Popular';
+  static const String calm = 'Calm';
 }
